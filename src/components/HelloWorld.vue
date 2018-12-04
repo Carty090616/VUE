@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <!-- 组件引入 -->
     <comA ></comA>
     <!-- 字符串里的html标签也会以html形式展现 -->
     <p v-html="msg"></p>
@@ -16,6 +17,8 @@
     <p v-for="(key, value) in obj">
       {{ key }} - {{ value }}
     </p>
+    <!-- v-on 事件双向绑定绑定 -->
+    <button v-on:click="addItem">addItem</button>
   </div>
 </template>
 
@@ -46,6 +49,15 @@
           color: 'red',
           weight: 14
         }
+      }
+    },
+    methods: {
+      // 点击addItem按钮会向list中添加数据
+      addItem () {
+        this.list.push({
+          name: 'pinaapple',
+            price: 66
+        })
       }
     }
   }
