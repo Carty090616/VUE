@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <comA ></comA>
     <!-- 字符串里的html标签也会以html形式展现 -->
     <p v-html="msg"></p>
     <!-- 字符串里的html标签会议字符串的形式展现 -->
@@ -19,8 +20,12 @@
 </template>
 
 <script>
+  import comA from '@/components/A/A'
   export default {
     name: 'HelloWorld',
+    components: {
+      comA
+    },
     data() {
       return {
         msg: '<span><img>hello</span>',
