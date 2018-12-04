@@ -1,113 +1,50 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <!-- 字符串里的html标签也会以html形式展现 -->
+    <p v-html="msg"></p>
+    <!-- 字符串里的html标签会议字符串的形式展现 -->
+    {{ msg }}
+    <p v-text="msg"></p>
+    <!-- “Mustache”语法使用三目运算 -->
+    {{ status ? 'true' : 'false' }}
+    <!-- v-for 数组 使用index,并为符合条件的index附上class标签 -->
+    <p v-for="(item, index) in list" :class="{odd:index % 2}">
+      {{ index }} - name: {{ item.name }} - price: {{ item.price }}
+    </p>
+    <!-- v-for 对象 -->
+    <p v-for="(key, value) in obj">
+      {{ key }} - {{ value }}
+    </p>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  export default {
+    name: 'HelloWorld',
+    data() {
+      return {
+        msg: '<span><img>hello</span>',
+        status: false,
+        list: [
+          {
+            name: 'apple',
+            price: 36
+          },
+          {
+            name: 'banana',
+            price: 56
+          }
+        ],
+        obj: {
+          name: 'apple',
+          price: 34,
+          color: 'red',
+          weight: 14
+        }
+      }
     }
   }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
