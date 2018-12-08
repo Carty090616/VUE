@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <!-- 组件引入 -->
-    <comA ></comA>
+    <comA></comA>
     <!-- 字符串里的html标签也会以html形式展现 -->
     <p v-html="msg"></p>
     <!-- 字符串里的html标签会议字符串的形式展现 -->
@@ -19,6 +19,15 @@
     </p>
     <!-- v-on 事件双向绑定绑定 -->
     <button v-on:click="addItem">addItem</button>
+
+    <!-- 跳转页面 -->
+    <router-link to="/B">
+      <button class="btn btn-default">点击跳转</button>
+    </router-link>
+    <!-- 跳转页面 -->
+    <router-link to="/form">
+      <button class="btn btn-default">点击表单提交</button>
+    </router-link>
   </div>
 </template>
 
@@ -53,10 +62,10 @@
     },
     methods: {
       // 点击addItem按钮会向list中添加数据
-      addItem () {
+      addItem() {
         this.list.push({
           name: 'pinaapple',
-            price: 66
+          price: 66
         })
       }
     }
